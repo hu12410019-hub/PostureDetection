@@ -1,0 +1,481 @@
+/* =========================================================
+   GYMGUARD - WEEKLY PROGRESS UI
+   UI ONLY - NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(168, 189, 126, 0.08), transparent 28%),
+        radial-gradient(circle at 85% 85%, rgba(168, 189, 126, 0.05), transparent 30%),
+        #151714;
+    color: #f1efe8;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    height: 76px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(21, 23, 20, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #a8bd7e;
+
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+nav a {
+    position: relative;
+
+    color: #aaaCA4;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #a8bd7e;
+
+    transition: width 0.25s ease;
+}
+
+nav a:hover {
+    color: #f1efe8;
+    transform: translateY(-1px);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.progress-page {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 70px 0 90px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.progress-heading-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 42px;
+
+    animation: fadeUp 0.6s ease both;
+}
+
+.small-heading {
+    color: #a8bd7e;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 10px;
+}
+
+.progress-heading-row h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 14px;
+}
+
+#weeklyRange {
+    color: #9fa19a;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-progress-btn {
+    border: 1px solid rgba(168, 189, 126, 0.35);
+
+    background: rgba(168, 189, 126, 0.08);
+    color: #dfe7d0;
+
+    padding: 13px 19px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-progress-btn:hover {
+    background: rgba(168, 189, 126, 0.16);
+
+    border-color: rgba(168, 189, 126, 0.65);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.back-progress-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROGRESS CARDS
+   ========================================================= */
+
+.progress-cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.progress-card {
+    position: relative;
+
+    min-height: 145px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+        ),
+        #20231e;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.progress-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -45px;
+    right: -45px;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: rgba(168, 189, 126, 0.08);
+
+    transition: transform 0.4s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(168, 189, 126, 0.28);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+.progress-card:hover::before {
+    transform: scale(1.35);
+}
+
+.progress-card span {
+    position: relative;
+    z-index: 2;
+
+    color: #858981;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.progress-card strong {
+    position: relative;
+    z-index: 2;
+
+    color: #f1efe8;
+
+    font-size: 38px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   WEEKLY ACTIVITY CARD
+   ========================================================= */
+
+.progress-section-card {
+    position: relative;
+
+    padding: 32px;
+
+    min-height: 360px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.012)
+        ),
+        #20231e;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.2);
+
+    overflow: hidden;
+
+    animation: fadeUp 0.75s ease both;
+}
+
+.progress-section-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -110px;
+    bottom: -130px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(168, 189, 126, 0.08);
+
+    pointer-events: none;
+}
+
+.progress-section-card h2 {
+    font-size: 26px;
+
+    margin-bottom: 28px;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   ACTIVITY CHART
+   ========================================================= */
+
+.activity-chart {
+    min-height: 235px;
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(168, 189, 126, 0.035),
+            rgba(168, 189, 126, 0.008)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.045);
+
+    position: relative;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.activity-chart:hover {
+    border-color: rgba(168, 189, 126, 0.16);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .progress-page {
+        width: 92%;
+        padding-top: 50px;
+    }
+
+    .progress-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-heading-row {
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    header {
+        height: auto;
+        padding: 20px 5%;
+
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .progress-page {
+        width: 92%;
+        padding: 40px 0 60px;
+    }
+
+    .progress-heading-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .progress-heading-row h1 {
+        font-size: 36px;
+    }
+
+    .back-progress-btn {
+        width: 100%;
+    }
+
+    .progress-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-card {
+        min-height: 125px;
+    }
+
+    .progress-section-card {
+        padding: 22px;
+    }
+
+}

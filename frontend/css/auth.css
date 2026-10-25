@@ -1,0 +1,71 @@
+/* =========================================================
+   GYMGUARD AUTH CONTROLS
+   ========================================================= */
+
+.gymguard-user-controls {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: 8px;
+}
+
+
+.gymguard-user-name {
+    color: #a8bd7e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.gymguard-logout {
+    border: 1px solid
+        rgba(168, 189, 126, 0.35);
+
+    background:
+        rgba(168, 189, 126, 0.08);
+
+    color: #a8bd7e;
+
+    padding: 8px 13px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.25s ease;
+}
+
+
+.gymguard-logout:hover {
+    background: #a8bd7e;
+
+    color: #171914;
+
+    transform:
+        translateY(-1px);
+}
+
+
+@media (max-width: 700px) {
+
+    .gymguard-user-name {
+        display: none;
+    }
+
+    .gymguard-user-controls {
+        margin-left: 0;
+    }
+
+}

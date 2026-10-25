@@ -1,0 +1,27 @@
+{
+    "exercise": "squat",
+    "reference_video": "squats.mp4",
+    "movement": {
+        "up_threshold": 160,
+        "down_threshold": 90,
+        "lowest_knee_angle": 41.88
+    },
+    "phases": {
+        "start": "UP",
+        "middle": "DOWN",
+        "end": "UP"
+    },
+    "reference_frames": {
+        "up_start": 1,
+        "down": 140,
+        "up_return": 182
+    },
+    "angle_profile": {
+        "knee_min": 41.88,
+        "knee_max": 179.51,
+        "hip_min": 60.97,
+        "hip_max": 179.07,
+        "torso_min": 0.2,
+        "torso_max": 26.92
+    }
+}

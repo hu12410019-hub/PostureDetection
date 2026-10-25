@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Exercises</title>
+
+    <link rel="stylesheet" href="css/exercises.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">GYMGUARD</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="exercises.html" class="active">Exercises</a>
+            <a href="result.html">Result</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <!-- Exercise Selection -->
+    <main class="exercises-page">
+
+        <div class="page-heading">
+            <p class="small-heading">GYMGUARD WORKOUT</p>
+
+            <h1>Choose Your Exercise</h1>
+
+            <p>
+                Select an exercise to learn the correct technique
+                and start your AI-powered workout.
+            </p>
+        </div>
+
+        <div class="exercise-grid">
+
+            <!-- Squat -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Squads.png"
+                        alt="Athlete performing a squat"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Beginner</span>
+                    <h2>Squat</h2>
+
+                    <p>
+                        Improve your leg and lower-body strength
+                        with proper squat technique.
+                    </p>
+
+                    <button type="button" onclick="openExercise('squat')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+            <!-- Bicep Curl -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Dumbbell Curl.png"
+                        alt="Athlete performing a bicep curl"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Beginner</span>
+                    <h2>Bicep Curl</h2>
+
+                    <p>
+                        Improve your arm movement and bicep
+                        curl technique.
+                    </p>
+
+                    <button type="button" onclick="openExercise('bicep-curl')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+            <!-- Lunges -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Lunges.png"
+                        alt="Athlete performing a lunge"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Beginner</span>
+                    <h2>Lunges</h2>
+
+                    <p>
+                        Improve your balance, leg strength
+                        and lower-body movement.
+                    </p>
+
+                    <button type="button" onclick="openExercise('lunges')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+            <!-- Shoulder Press -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Shoulder press.png"
+                        alt="Athlete performing a shoulder press"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Intermediate</span>
+                    <h2>Shoulder Press</h2>
+
+                    <p>
+                        Analyze your shoulder and arm movement
+                        during the press.
+                    </p>
+
+                    <button type="button" onclick="openExercise('shoulder-press')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+            <!-- Lateral Raise -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Lateral raises.png"
+                        alt="Athlete performing a lateral raise"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Intermediate</span>
+                    <h2>Lateral Raise</h2>
+
+                    <p>
+                        Track your shoulder angle and arm
+                        elevation during controlled raises.
+                    </p>
+
+                    <button type="button" onclick="openExercise('lateral-raise')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+            <!-- Romanian Deadlift -->
+            <article class="exercise-card">
+                <div class="exercise-image">
+                    <img
+                        src="images\exersise\Romainian deadlift.png"
+                        alt="Athlete performing a Romanian deadlift"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="exercise-content">
+                    <span class="difficulty">Advanced</span>
+                    <h2>Romanian Deadlift</h2>
+
+                    <p>
+                        Track hip hinge, knee bend and torso
+                        position during the movement.
+                    </p>
+
+                    <button type="button" onclick="openExercise('romanian-deadlift')">
+                        View Exercise
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Exercise Navigation -->
+    <script>
+        function openExercise(exercise) {
+            window.location.href =
+                "exercise-details.html?exercise=" +
+                encodeURIComponent(exercise);
+        }
+    </script>
+
+    <!-- Existing Login Protection -->
+    <script src="js/auth.js"></script>
+
+    <script>
+        requireLogin();
+    </script>
+
+</body>
+</html>

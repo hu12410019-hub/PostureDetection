@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Exercise</title>
+
+    <link rel="stylesheet" href="css/exercise-details.css">
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        GYMGUARD
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="exercises.html">
+            Exercises
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="exercise-detail-page">
+
+
+    <div class="detail-container">
+
+
+        <!-- Left Side -->
+
+        <div class="detail-video">
+
+            <div class="video-placeholder">
+
+                  <div class="exercise-image">
+                    <img
+                        src="images\exersise\Squads.png"
+                        alt="Athlete performing a squat"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+
+        <div class="detail-info">
+
+            <span id="difficulty"
+                class="difficulty">
+                Beginner
+            </span>
+
+            <h1 id="exerciseTitle">
+                Squat
+            </h1>
+
+            <p id="exerciseDescription">
+                Learn the correct squat technique
+                and improve your lower-body movement.
+            </p>
+
+
+            <div class="detail-section">
+
+                <h3>
+                    Target Muscles
+                </h3>
+
+                <p id="targetMuscles">
+                    Quadriceps • Glutes • Hamstrings
+                </p>
+
+            </div>
+
+
+            <div class="detail-section">
+
+                <h3>
+                    AI Will Check
+                </h3>
+
+                <ul id="aiChecks">
+
+                    <li>Squat depth</li>
+
+                    <li>Knee angle</li>
+
+                    <li>Back position</li>
+
+                    <li>Knee alignment</li>
+
+                    <li>Movement consistency</li>
+
+                </ul>
+
+            </div>
+
+
+            <button
+                class="start-exercise"
+                onclick="startExercise()">
+
+                Start AI Workout
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+<script src="js/auth.js"></script>
+
+<script>
+    requireLogin();
+</script>
+
+<script src="js/exercise-details.js"></script>
+
+
+</body>
+
+</html>

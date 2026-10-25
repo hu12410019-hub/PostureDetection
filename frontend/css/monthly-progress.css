@@ -1,0 +1,528 @@
+/* =========================================================
+   GYMGUARD - MONTHLY PROGRESS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(168,189,126,0.08),
+            transparent 28%
+        ),
+        #151714;
+
+    color: #f1efe8;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    height: 76px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: rgba(21,23,20,0.9);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    color: #a8bd7e;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+
+    gap: 34px;
+}
+
+nav a {
+    color: #aaaCA4;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+nav a:hover {
+    color: #f1efe8;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.progress-page {
+    width: min(1180px, 90%);
+
+    margin: auto;
+
+    padding: 70px 0 90px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.progress-heading-row {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 42px;
+}
+
+.small-heading {
+    color: #a8bd7e;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 10px;
+}
+
+.progress-heading-row h1 {
+    font-size: clamp(34px, 5vw, 54px);
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 14px;
+}
+
+#monthlyTitle {
+    color: #999d95;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-progress-btn {
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(168,189,126,0.35);
+
+    background:
+        rgba(168,189,126,0.08);
+
+    color: #dfe7d0;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.back-progress-btn:hover {
+    background:
+        rgba(168,189,126,0.16);
+
+    border-color:
+        rgba(168,189,126,0.65);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.progress-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.progress-card {
+    min-height: 145px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        ),
+        #20231e;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius: 18px;
+
+    transition: 0.3s ease;
+}
+
+.progress-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(168,189,126,0.3);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.3);
+}
+
+.progress-card span {
+    color: #858981;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.progress-card strong {
+    color: #f1efe8;
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACTIVITY CARD
+   ========================================================= */
+
+.progress-section-card {
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.012)
+        ),
+        #20231e;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.2);
+}
+
+.progress-section-card h2 {
+    font-size: 26px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   MONTHLY CHART
+   ========================================================= */
+
+.activity-chart {
+    height: 300px;
+
+    width: 100%;
+
+    padding:
+        20px 24px 12px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 10px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+
+    background:
+        repeating-linear-gradient(
+            to top,
+            rgba(255,255,255,0.045) 0,
+            rgba(255,255,255,0.045) 1px,
+            transparent 1px,
+            transparent 45px
+        );
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #66764d
+        transparent;
+}
+
+
+/* =========================================================
+   MONTHLY DAY COLUMN
+   ========================================================= */
+
+.chart-column {
+    height: 260px;
+
+    min-width: 30px;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 6px;
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VALUE
+   ========================================================= */
+
+.chart-value {
+    min-height: 17px;
+
+    color: #cdd8bc;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+
+/* =========================================================
+   BAR
+   ========================================================= */
+
+.chart-bar {
+    width: 18px;
+
+    min-height: 5px;
+
+    border-radius:
+        6px 6px 3px 3px;
+
+    background:
+        linear-gradient(
+            to top,
+            #66764d,
+            #a8bd7e
+        );
+
+    box-shadow:
+        0 6px 15px
+        rgba(168,189,126,0.10);
+
+    transition:
+        height 0.4s ease,
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.chart-column:hover .chart-bar {
+    transform:
+        scaleX(1.25);
+
+    filter:
+        brightness(1.2);
+}
+
+.chart-column:hover .chart-value {
+    color: #f1efe8;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   DAY NUMBER
+   ========================================================= */
+
+.chart-label {
+    color: #8f948b;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.active-day .chart-label {
+    color: #cbd8b5;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.activity-chart::-webkit-scrollbar {
+    height: 7px;
+}
+
+.activity-chart::-webkit-scrollbar-track {
+    background:
+        rgba(255,255,255,0.03);
+
+    border-radius: 10px;
+}
+
+.activity-chart::-webkit-scrollbar-thumb {
+    background:
+        #66764d;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .progress-page {
+        width: 92%;
+    }
+
+    .progress-cards {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    header {
+        height: auto;
+
+        padding: 20px 5%;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    nav {
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .progress-heading-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .back-progress-btn {
+        width: 100%;
+    }
+
+    .progress-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-section-card {
+        padding: 20px;
+    }
+
+    .activity-chart {
+        padding:
+            20px 15px 12px;
+
+        gap: 8px;
+    }
+
+}

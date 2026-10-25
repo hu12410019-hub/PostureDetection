@@ -1,0 +1,1052 @@
+/* =========================================================
+   GYMGUARD — HOME PAGE
+   UI DESIGN ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 12% 20%,
+            rgba(116, 67, 255, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 75%,
+            rgba(0, 210, 255, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 110%,
+            rgba(151, 55, 255, 0.13),
+            transparent 35%
+        ),
+        #07090d;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+   ========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            transparent 90%
+        );
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 480px;
+
+    height: 480px;
+
+    top: -180px;
+
+    right: -130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.20),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    animation:
+        floatingGlow 8s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+
+@keyframes floatingGlow {
+
+    0% {
+        transform: translate(
+            0,
+            0
+        );
+    }
+
+    50% {
+        transform: translate(
+            -35px,
+            25px
+        );
+    }
+
+    100% {
+        transform: translate(
+            0,
+            0
+        );
+    }
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    height: 72px;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 7%;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(7, 9, 13, 0.72);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    position: relative;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    color: #ffffff;
+
+    cursor: default;
+}
+
+
+.logo::after {
+    content: "";
+
+    display: block;
+
+    width: 24px;
+
+    height: 3px;
+
+    margin-top: 4px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #22d3ee
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(124, 58, 237, 0.8);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+nav a {
+    position: relative;
+
+    color: #9299a8;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -9px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #22d3ee
+        );
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.25s ease;
+}
+
+
+nav a:hover {
+    color: #ffffff;
+}
+
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* Active Home */
+
+nav a:first-child {
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+
+nav a:first-child::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height:
+        calc(100vh - 72px);
+
+    width: min(
+        1120px,
+        86%
+    );
+
+    margin:
+        0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        0.85fr;
+
+    align-items: center;
+
+    gap: 90px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-text {
+    position: relative;
+
+    animation:
+        heroTextIn 0.9s ease both;
+}
+
+
+@keyframes heroTextIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* Small AI label before heading */
+
+.hero-text::before {
+    content: "●  AI FITNESS TECHNOLOGY";
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        8px 13px;
+
+    margin-bottom: 24px;
+
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.30);
+
+    border-radius: 30px;
+
+    background:
+        rgba(124, 58, 237, 0.08);
+
+    color: #b8a2ff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+
+    box-shadow:
+        0 0 25px
+        rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================================
+   HERO HEADING
+   ========================================================= */
+
+.hero-text h1 {
+    max-width: 700px;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            86px
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+
+    font-weight: 900;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 10px 50px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+/* Gradient part through heading */
+
+.hero-text h1 br {
+    display: block;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero-text p {
+    max-width: 520px;
+
+    margin-top: 28px;
+
+    color: #9ca3af;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    letter-spacing: 0.1px;
+}
+
+
+/* =========================================================
+   START WORKOUT BUTTON
+   ========================================================= */
+
+.hero-text button {
+    position: relative;
+
+    margin-top: 35px;
+
+    padding:
+        15px 30px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #6d28d9
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 35px
+        rgba(109, 40, 217, 0.35);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.hero-text button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+}
+
+
+.hero-text button:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 16px 45px
+        rgba(109, 40, 217, 0.52);
+}
+
+
+.hero-text button:hover::before {
+    left: 130%;
+}
+
+
+.hero-text button:active {
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO CARD
+   ========================================================= */
+
+.hero-card {
+    min-height: 330px;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 32, 43, 0.80),
+            rgba(14, 16, 22, 0.90)
+        );
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.38),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05);
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation:
+        heroCardIn 1s 0.15s ease both;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+@keyframes heroCardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(35px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+/* Card glow */
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    top: -100px;
+
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.30),
+            transparent 68%
+        );
+
+    filter: blur(10px);
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.hero-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+
+    height: 170px;
+
+    bottom: -90px;
+
+    left: -70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34, 211, 238, 0.14),
+            transparent 70%
+        );
+
+    filter: blur(12px);
+}
+
+
+.hero-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(139, 92, 246, 0.38);
+
+    box-shadow:
+        0 40px 90px
+        rgba(0, 0, 0, 0.48),
+        0 0 45px
+        rgba(124, 58, 237, 0.10),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.07);
+}
+
+
+.hero-card:hover::before {
+    transform:
+        scale(1.3);
+}
+
+
+/* =========================================================
+   CARD ICON
+   ========================================================= */
+
+.card-icon {
+    width: 72px;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.22),
+            rgba(34, 211, 238, 0.10)
+        );
+
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.25);
+
+    font-size: 34px;
+
+    box-shadow:
+        0 0 35px
+        rgba(124, 58, 237, 0.16);
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        iconFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   CARD HEADING
+   ========================================================= */
+
+.hero-card h2 {
+    margin-top: 27px;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.hero-card p {
+    max-width: 330px;
+
+    margin-top: 13px;
+
+    color: #8f97a8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CARD CORNER DECORATION
+   ========================================================= */
+
+.hero-card h2::after {
+    content: "";
+
+    display: block;
+
+    width: 38px;
+
+    height: 3px;
+
+    margin-top: 14px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #22d3ee
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(139, 92, 246, 0.45);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (
+    max-width: 850px
+) {
+
+    header {
+        padding:
+            0 5%;
+    }
+
+
+    .hero {
+        width: 90%;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+
+        padding:
+            70px 0;
+    }
+
+
+    .hero-text {
+        text-align: center;
+    }
+
+
+    .hero-text::before {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-text h1 {
+        font-size:
+            clamp(
+                48px,
+                9vw,
+                70px
+            );
+    }
+
+
+    .hero-text p {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-text button {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-card {
+        min-height: 290px;
+
+        width: min(
+            500px,
+            100%
+        );
+
+        margin:
+            0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (
+    max-width: 560px
+) {
+
+    header {
+        height: 65px;
+
+        padding:
+            0 5%;
+    }
+
+
+    .logo {
+        font-size: 18px;
+
+        letter-spacing: 1px;
+    }
+
+
+    nav {
+        gap: 15px;
+    }
+
+
+    nav a {
+        font-size: 11px;
+    }
+
+
+    .hero {
+        width: 90%;
+
+        min-height:
+            calc(100vh - 65px);
+
+        padding:
+            50px 0
+            60px;
+
+        gap: 35px;
+    }
+
+
+    .hero-text h1 {
+        font-size: 47px;
+
+        line-height: 1;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .hero-text p {
+        margin-top: 22px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .hero-text button {
+        width: 100%;
+
+        margin-top: 27px;
+
+        padding:
+            15px 20px;
+    }
+
+
+    .hero-card {
+        min-height: 280px;
+
+        padding: 30px;
+
+        border-radius: 22px;
+    }
+
+
+    .card-icon {
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 28px;
+    }
+
+
+    .hero-card h2 {
+        font-size: 22px;
+    }
+
+
+    .hero-card p {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}

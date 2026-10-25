@@ -1,0 +1,323 @@
+/* =========================================================
+   GYMGUARD - WEEKLY / MONTHLY CHARTS
+   ========================================================= */
+
+.progress-heading-row {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.back-progress-btn {
+    border: 1px solid
+        rgba(168, 189, 126, 0.35);
+
+    background:
+        rgba(168, 189, 126, 0.08);
+
+    color: #a8bd7e;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.back-progress-btn:hover {
+    background: #a8bd7e;
+
+    color: #151714;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   CHART CARD
+   ========================================================= */
+
+.activity-chart {
+    width: 100%;
+
+    min-height: 380px;
+
+    margin-top: 24px;
+
+    padding: 24px;
+
+    border-radius: 18px;
+
+    border: 1px solid
+        rgba(255,255,255,0.07);
+
+    background:
+        linear-gradient(
+            145deg,
+            #252923,
+            #1b1e1a
+        );
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.chart-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+.chart-summary > div {
+    padding: 16px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(168, 189, 126, 0.06);
+
+    border: 1px solid
+        rgba(168, 189, 126, 0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.chart-summary strong {
+    font-size: 24px;
+
+    color: #f1efe8;
+}
+
+
+.chart-summary span {
+    color: #969991;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   WEEKLY CHART
+   ========================================================= */
+
+.weekly-chart-area {
+    min-width: 650px;
+
+    height: 250px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content:
+        space-around;
+
+    gap: 14px;
+
+    padding:
+        20px 10px 0;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+.weekly-chart-area
+.chart-column {
+    flex: 1;
+
+    max-width: 90px;
+
+    height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   MONTHLY CHART
+   ========================================================= */
+
+.monthly-chart-area {
+    min-width: 900px;
+
+    height: 250px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 5px;
+
+    padding:
+        20px 8px 0;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+.monthly-chart-area
+.chart-column {
+    flex: 1;
+
+    min-width: 22px;
+
+    height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* =========================================================
+   VALUES
+   ========================================================= */
+
+.chart-value {
+    min-height: 18px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #dfe6d3;
+}
+
+
+/* =========================================================
+   BAR
+   ========================================================= */
+
+.chart-bar {
+    width: 100%;
+
+    max-width: 34px;
+
+    min-height: 8px;
+
+    border-radius:
+        8px 8px 3px 3px;
+
+    background:
+        linear-gradient(
+            to top,
+            #8ea765,
+            #b8cf8c
+        );
+
+    box-shadow:
+        0 4px 16px
+        rgba(168, 189, 126, 0.12);
+
+    transition:
+        height 0.5s ease,
+        transform 0.25s ease;
+
+    position: relative;
+}
+
+
+.chart-bar:hover {
+    transform:
+        scaleX(1.12);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.chart-label {
+    color: #e7e8e2;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.chart-workout-count {
+    color: #777c73;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .progress-heading-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .back-progress-btn {
+        width: 100%;
+    }
+
+
+    .chart-summary {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .activity-chart {
+        padding: 16px;
+    }
+
+}

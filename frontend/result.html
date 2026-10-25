@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Progress</title>
+
+    <!-- Progress page design -->
+    <link
+        rel="stylesheet"
+        href="css/progress.css">
+        <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        GYMGUARD
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+
+        <a href="exercises.html">
+            Exercises
+        </a>
+
+
+        <a href="result.html">
+            Result
+        </a>
+
+
+        <a href="#">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="progress-page">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <section class="progress-header">
+
+
+        <div>
+
+            <p class="small-heading">
+                YOUR PROGRESS
+            </p>
+
+
+            <h1>
+                Daily Progress
+            </h1>
+
+
+            <p id="selectedDateLabel">
+                Today
+            </p>
+
+        </div>
+
+
+        <button
+            id="calendarBtn"
+            class="calendar-btn"
+            type="button">
+
+            📅 Calendar
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CALENDAR
+         ===================================================== -->
+
+    <div
+        id="calendarPanel"
+        class="calendar-panel"
+        hidden>
+
+
+        <div class="calendar-topbar">
+
+
+            <button
+                id="prevMonth"
+                type="button">
+
+                ‹
+
+            </button>
+
+
+            <strong id="calendarMonth">
+                Month
+            </strong>
+
+
+            <button
+                id="nextMonth"
+                type="button">
+
+                ›
+
+            </button>
+
+
+        </div>
+
+
+        <div class="calendar-weekdays">
+
+            <span>Mon</span>
+
+            <span>Tue</span>
+
+            <span>Wed</span>
+
+            <span>Thu</span>
+
+            <span>Fri</span>
+
+            <span>Sat</span>
+
+            <span>Sun</span>
+
+        </div>
+
+
+        <div
+            id="calendarGrid"
+            class="calendar-grid">
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DAILY STATS
+         ===================================================== -->
+
+    <section class="progress-view">
+
+
+        <div class="progress-cards">
+
+
+            <div class="progress-card">
+
+                <span>
+                    WORKOUTS
+                </span>
+
+
+                <strong id="dailyWorkouts">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <span>
+                    TOTAL REPS
+                </span>
+
+
+                <strong id="dailyReps">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <span>
+                    DURATION
+                </span>
+
+
+                <strong id="dailyDuration">
+                    00:00
+                </strong>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <span>
+                    CALORIES
+                </span>
+
+
+                <strong id="dailyCalories">
+                    0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             WORKOUT HISTORY
+             ================================================= -->
+
+        <div class="progress-section-card">
+
+
+            <p class="small-heading">
+                WORKOUT HISTORY
+            </p>
+
+
+            <h2>
+                Today's Workouts
+            </h2>
+
+
+            <div
+                id="dailyWorkoutList"
+                class="workout-list">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             WEEKLY / MONTHLY
+             ================================================= -->
+
+        <div class="progress-switcher">
+
+
+            <button
+                id="weeklyBtn"
+                class="progress-option-btn"
+                type="button">
+
+                📊 Weekly Progress
+
+            </button>
+
+
+            <button
+                id="monthlyBtn"
+                class="progress-option-btn"
+                type="button">
+
+                📈 Monthly Progress
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="js/auth.js"></script>
+
+<script>
+    requireLogin();
+</script>
+
+<script src="js/result.js"></script>
+
+
+</body>
+
+</html>

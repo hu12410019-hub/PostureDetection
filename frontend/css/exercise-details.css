@@ -1,0 +1,844 @@
+/* =========================================================
+   GYMGUARD — EXERCISE DETAILS
+   UI DESIGN ONLY
+   No functionality changes
+   ========================================================= */
+
+:root {
+    --bg: #151714;
+    --surface: #20231e;
+    --surface-2: #1b1e1a;
+
+    --text: #f1efe8;
+    --muted: #a9aaa2;
+
+    --accent: #a8bd7e;
+    --accent-light: #c1d39b;
+
+    --border: rgba(241, 239, 232, 0.09);
+    --border-accent: rgba(168, 189, 126, 0.24);
+
+    --shadow: 0 25px 60px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(168, 189, 126, 0.07),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 85%,
+            rgba(255, 255, 255, 0.025),
+            transparent 30%
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.007) 0,
+            rgba(255, 255, 255, 0.007) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        var(--bg);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    width: 100%;
+    min-height: 78px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(21, 23, 20, 0.95);
+
+    position: relative;
+    z-index: 10;
+}
+
+
+.logo {
+    color: var(--text);
+
+    font-size: 18px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+nav a {
+    position: relative;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition:
+        width 0.25s ease;
+}
+
+
+nav a:hover {
+    color: var(--text);
+}
+
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.exercise-detail-page {
+
+    width: min(1180px, 88%);
+
+    min-height: calc(100vh - 78px);
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 0 90px;
+}
+
+
+/* =========================================================
+   MAIN DETAIL CONTAINER
+   ========================================================= */
+
+.detail-container {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 0.92fr);
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   LEFT VIDEO / PREVIEW
+   ========================================================= */
+
+.detail-video {
+
+    position: relative;
+
+    min-height: 510px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            transparent 50%
+        ),
+
+        var(--surface-2);
+
+    box-shadow: var(--shadow);
+
+    animation:
+        previewIn 0.75s ease both;
+}
+
+
+/* Large background circle */
+
+.detail-video::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid
+        rgba(168, 189, 126, 0.13);
+
+    border-radius: 50%;
+}
+
+
+/* Smaller background circle */
+
+.detail-video::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid
+        rgba(168, 189, 126, 0.09);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   VIDEO PLACEHOLDER
+   ========================================================= */
+
+.video-placeholder {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 510px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+
+/* Exercise emoji */
+
+#exerciseIcon {
+
+    width: 145px;
+    height: 145px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(168, 189, 126, 0.25);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 189, 126, 0.12),
+            rgba(168, 189, 126, 0.035)
+        );
+
+    font-size: 70px;
+
+    box-shadow:
+        0 0 0 16px rgba(168, 189, 126, 0.025),
+        0 0 0 32px rgba(168, 189, 126, 0.015);
+
+    animation:
+        iconFloat 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   RIGHT INFORMATION
+   ========================================================= */
+
+.detail-info {
+
+    position: relative;
+
+    animation:
+        infoIn 0.75s 0.12s ease both;
+}
+
+
+/* =========================================================
+   DIFFICULTY
+   ========================================================= */
+
+.difficulty {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 12px;
+
+    border: 1px solid
+        rgba(168, 189, 126, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(168, 189, 126, 0.08);
+
+    color: var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+#exerciseTitle {
+
+    margin-top: 20px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(48px, 6vw, 76px);
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+#exerciseDescription {
+
+    max-width: 570px;
+
+    margin-top: 24px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   DETAIL SECTIONS
+   ========================================================= */
+
+.detail-section {
+
+    margin-top: 34px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.detail-section h3 {
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+.detail-section p {
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   AI CHECK LIST
+   ========================================================= */
+
+#aiChecks {
+
+    margin-top: 14px;
+
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+#aiChecks li {
+
+    position: relative;
+
+    padding: 12px 13px 12px 32px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+#aiChecks li::before {
+
+    content: "✓";
+
+    position: absolute;
+
+    left: 11px;
+    top: 11px;
+
+    color: var(--accent);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+#aiChecks li:hover {
+
+    border-color:
+        var(--border-accent);
+
+    background:
+        rgba(168, 189, 126, 0.055);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   START BUTTON
+   ========================================================= */
+
+.start-exercise {
+
+    width: 100%;
+
+    margin-top: 34px;
+
+    padding: 16px 22px;
+
+    border: 1px solid var(--accent);
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: #171914;
+
+    font: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.start-exercise:hover {
+
+    background: var(--accent-light);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.32);
+}
+
+
+.start-exercise:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes previewIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes infoIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .exercise-detail-page {
+
+        width: 88%;
+
+        padding:
+            60px 0 80px;
+    }
+
+
+    .detail-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .detail-video {
+
+        min-height: 430px;
+    }
+
+
+    .video-placeholder {
+
+        min-height: 430px;
+    }
+
+
+    #exerciseTitle {
+
+        font-size:
+            clamp(48px, 9vw, 68px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+
+        min-height: 70px;
+
+        padding:
+            0 5%;
+    }
+
+
+    .logo {
+
+        font-size: 16px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    nav {
+
+        gap: 17px;
+    }
+
+
+    nav a {
+
+        font-size: 11px;
+    }
+
+
+    .exercise-detail-page {
+
+        width: 90%;
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding:
+            45px 0 65px;
+    }
+
+
+    .detail-container {
+
+        gap: 35px;
+    }
+
+
+    .detail-video {
+
+        min-height: 330px;
+
+        border-radius: 15px;
+    }
+
+
+    .video-placeholder {
+
+        min-height: 330px;
+    }
+
+
+    .detail-video::before {
+
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .detail-video::after {
+
+        width: 180px;
+        height: 180px;
+    }
+
+
+    #exerciseIcon {
+
+        width: 105px;
+        height: 105px;
+
+        font-size: 52px;
+    }
+
+
+    .difficulty {
+
+        font-size: 9px;
+
+        padding:
+            6px 10px;
+    }
+
+
+    #exerciseTitle {
+
+        margin-top: 17px;
+
+        font-size:
+            clamp(42px, 13vw, 58px);
+
+        letter-spacing: -2px;
+    }
+
+
+    #exerciseDescription {
+
+        margin-top: 20px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .detail-section {
+
+        margin-top: 28px;
+
+        padding-top: 21px;
+    }
+
+
+    .detail-section h3 {
+
+        font-size: 11px;
+    }
+
+
+    .detail-section p {
+
+        font-size: 13px;
+    }
+
+
+    #aiChecks {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+
+    #aiChecks li {
+
+        font-size: 12px;
+
+        padding:
+            11px 12px 11px 31px;
+    }
+
+
+    .start-exercise {
+
+        margin-top: 28px;
+
+        padding: 15px 18px;
+
+        font-size: 13px;
+    }
+}

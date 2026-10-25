@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Workout</title>
+
+    <link
+        rel="stylesheet"
+        href="css/workout.css">
+        <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+            GYMGUARD
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="exercises.html">
+                Exercises
+            </a>
+
+
+            <a href="result.html">
+                Result
+            </a>
+
+
+            <a href="#">
+                About
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         WORKOUT PAGE
+         ===================================================== -->
+
+    <main class="workout-page">
+
+
+        <!-- =================================================
+             EXERCISE INFORMATION
+             ================================================= -->
+
+        <section class="workout-info">
+
+
+            <p class="small-heading">
+                AI WORKOUT
+            </p>
+
+
+            <h1 id="exerciseTitle">
+                Exercise
+            </h1>
+
+
+            <p id="exerciseDescription">
+                Loading exercise information...
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CAMERA + AI WORKOUT
+             ================================================= -->
+
+        <section class="camera-section">
+
+
+            <!-- =================================================
+                 CAMERA
+                 ================================================= -->
+
+            <div class="camera-container">
+
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline>
+                </video>
+
+
+                <!-- AI SKELETON -->
+
+                <canvas
+                    id="poseCanvas">
+                </canvas>
+
+
+                <!-- CAMERA MESSAGE -->
+
+                <div
+                    id="cameraMessage"
+                    class="camera-message">
+
+                    Camera is off
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAMERA CONTROLS
+                 ================================================= -->
+
+            <div class="controls">
+
+
+                <button
+                    type="button"
+                    onclick="startCamera()">
+
+                    Start Camera
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="stopCamera()">
+
+                    Stop Camera
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="finishWorkout()">
+
+                    Finish Workout
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 AI WORKOUT PANEL
+                 ================================================= -->
+
+            <div class="ai-workout-panel">
+
+
+                <!-- =============================================
+                     REP COUNTER
+                     ============================================= -->
+
+                <div class="ai-stat">
+
+
+                    <span>
+                        REPS
+                    </span>
+
+
+                    <strong id="repCount">
+                        0
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     STATUS
+                     ============================================= -->
+
+                <div class="ai-stat">
+
+
+                    <span>
+                        STATUS
+                    </span>
+
+
+                    <strong id="aiStatus">
+                        READY
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     JOINT ANALYSIS
+                     ============================================= -->
+
+                <div class="ai-stat">
+
+
+                    <span>
+                        JOINT ANALYSIS
+                    </span>
+
+
+                    <div class="joint-analysis">
+
+
+                        <div>
+
+                            Shoulder:
+
+                            <strong id="shoulderAngle">
+                                --°
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            Elbow:
+
+                            <strong id="elbowAngle">
+                                --°
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            Hip:
+
+                            <strong id="hipAngle">
+                                --°
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            Knee:
+
+                            <strong id="kneeAngle">
+                                --°
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     AI FEEDBACK
+                     ============================================= -->
+
+                <div class="ai-feedback">
+
+
+                    <span>
+                        AI FEEDBACK
+                    </span>
+
+
+                    <p id="aiFeedback">
+                        Start your workout
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     VOICE FEEDBACK
+                     ============================================= -->
+
+                <div class="voice-control">
+
+
+                    <span>
+                        VOICE FEEDBACK
+                    </span>
+
+
+                    <button
+                        id="voiceToggle"
+                        type="button"
+                        onclick="toggleVoice()">
+
+                        🔊 Voice ON
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             REFERENCE VIDEO + EXERCISE INSTRUCTIONS
+             ================================================= -->
+
+        <section class="reference-instruction-section">
+
+
+            <!-- =================================================
+                 LEFT SIDE - REFERENCE VIDEO
+                 ================================================= -->
+
+            <div class="reference-video-box">
+
+
+                <div class="reference-header">
+
+
+                    <p class="small-heading">
+                        AI REFERENCE
+                    </p>
+
+
+                    <h2>
+                        Correct Exercise Form
+                    </h2>
+
+
+                    <p>
+                        Watch the reference movement and try to
+                        follow the same exercise form.
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     REFERENCE VIDEO
+                     ============================================= -->
+
+                <div class="reference-video-container">
+
+
+                    <video
+                        id="referenceVideo"
+                        controls
+                        muted
+                        playsinline
+                        preload="metadata">
+
+
+                        <source
+                            src="PostureDetection\PostureDetection\reference_videos\squats.mp4"
+                            type="video/mp4">
+
+
+                        Your browser does not support video playback.
+
+
+                    </video>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     REFERENCE INFORMATION
+                     ============================================= -->
+
+                <div class="reference-info">
+
+
+                    <div>
+                        ✓ Correct movement
+                    </div>
+
+
+                    <div>
+                        ✓ Correct depth
+                    </div>
+
+
+                    <div>
+                        ✓ Correct body position
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDE - EXERCISE INSTRUCTIONS
+                 ================================================= -->
+
+            <div class="instruction-box">
+
+
+                <p class="small-heading">
+                    EXERCISE GUIDE
+                </p>
+
+
+                <h2>
+                    How to Perform
+                </h2>
+
+
+                <p class="instruction-intro">
+
+                    Follow these steps while performing the
+                    exercise. GymGuard will analyze your movement
+                    using the camera.
+
+                </p>
+
+
+
+                <!-- =============================================
+                     INSTRUCTIONS
+                     ============================================= -->
+
+                <ul id="instructions">
+
+
+                    <li>
+                        Follow the correct exercise technique.
+                    </li>
+
+
+                    <li>
+                        Keep your full body visible inside
+                        the camera.
+                    </li>
+
+
+                    <li>
+                        Perform the movement slowly and correctly.
+                    </li>
+
+
+                </ul>
+
+
+
+                <!-- =============================================
+                     AI TIPS
+                     ============================================= -->
+
+                <div class="instruction-tips">
+
+
+                    <h3>
+                        AI Tips
+                    </h3>
+
+
+                    <div>
+                        ✓ Keep your body properly aligned
+                    </div>
+
+
+                    <div>
+                        ✓ Perform controlled movements
+                    </div>
+
+
+                    <div>
+                        ✓ Follow the reference form
+                    </div>
+
+
+                    <div>
+                        ✓ Listen to AI feedback
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/auth.js"></script>
+
+    <script>
+        requireLogin();
+    </script>
+    <!-- =====================================================
+         MEDIAPIPE
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+
+
+
+    <!-- =====================================================
+         GYMGUARD JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/camera.js"></script>
+
+    <script src="js/workout.js"></script>
+
+    <script src="js/pose.js"></script>
+
+    <script src="js/workout-api.js"></script>
+
+
+</body>
+
+</html>

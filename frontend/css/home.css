@@ -1,0 +1,647 @@
+/* =========================================================
+   GYMGUARD — HOME PAGE
+   UI DESIGN ONLY
+   No JavaScript / functionality changes
+   ========================================================= */
+
+:root {
+    --bg: #151714;
+    --surface: #20231e;
+    --text: #f1efe8;
+    --muted: #a9aaa2;
+    --accent: #a8bd7e;
+    --border: rgba(241, 239, 232, 0.09);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(168, 189, 126, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 12% 85%,
+            rgba(255, 255, 255, 0.025),
+            transparent 30%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.008) 0,
+            rgba(255, 255, 255, 0.008) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        var(--bg);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    width: 100%;
+    min-height: 78px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(21, 23, 20, 0.94);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    color: var(--text);
+
+    font-size: 18px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+
+nav a {
+    position: relative;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.25s ease;
+}
+
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.25s ease;
+}
+
+
+nav a:hover {
+    color: var(--text);
+}
+
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    width: min(1180px, 88%);
+
+    min-height: calc(100vh - 78px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    align-items: center;
+
+    gap: 90px;
+
+    padding: 70px 0;
+}
+
+
+/* Subtle vertical design line */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 13%;
+
+    width: 1px;
+    height: 74%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(168, 189, 126, 0.28),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-text {
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        heroTextIn 0.7s ease both;
+}
+
+
+/* Small heading */
+
+.hero-text::before {
+    content: "AI FITNESS • REAL-TIME FORM";
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+}
+
+
+/* Main heading */
+
+.hero-text h1 {
+    max-width: 700px;
+
+    color: var(--text);
+
+    font-size: clamp(54px, 7vw, 92px);
+
+    line-height: 0.94;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+}
+
+
+/* Description */
+
+.hero-text p {
+    max-width: 520px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   START WORKOUT BUTTON
+   ========================================================= */
+
+.hero-text button {
+    margin-top: 38px;
+
+    min-width: 178px;
+
+    padding: 15px 24px;
+
+    border: 1px solid var(--accent);
+
+    border-radius: 9px;
+
+    background: var(--accent);
+
+    color: #171914;
+
+    font: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.hero-text button:hover {
+    background: #b8cb91;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+.hero-text button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   AI POSTURE CARD
+   ========================================================= */
+
+.hero-card {
+    position: relative;
+
+    min-height: 360px;
+
+    padding: 44px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 48%
+        ),
+        var(--surface);
+
+    box-shadow: var(--shadow);
+
+    animation:
+        cardIn 0.8s 0.12s ease both;
+}
+
+
+/* Large circle decoration */
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -90px;
+    right: -80px;
+
+    border:
+        1px solid rgba(168, 189, 126, 0.18);
+
+    border-radius: 50%;
+}
+
+
+/* Small circle decoration */
+
+.hero-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    top: -35px;
+    right: -25px;
+
+    border:
+        1px solid rgba(168, 189, 126, 0.1);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CARD ICON
+   ========================================================= */
+
+.card-icon {
+    position: absolute;
+
+    top: 42px;
+    left: 44px;
+
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid rgba(168, 189, 126, 0.25);
+
+    border-radius: 12px;
+
+    background:
+        rgba(168, 189, 126, 0.08);
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.hero-card h2 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 350px;
+
+    font-size: 29px;
+
+    line-height: 1.15;
+
+    font-weight: 750;
+
+    letter-spacing: -0.8px;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.hero-card p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 390px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes heroTextIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding: 80px 0;
+    }
+
+
+    .hero-text h1 {
+        font-size:
+            clamp(52px, 10vw, 76px);
+    }
+
+
+    .hero-card {
+        min-height: 300px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 70px;
+
+        padding: 0 5%;
+    }
+
+
+    .logo {
+        font-size: 16px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    nav {
+        gap: 18px;
+    }
+
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    .hero {
+        width: 90%;
+
+        min-height:
+            calc(100vh - 70px);
+
+        padding: 55px 0;
+
+        gap: 45px;
+    }
+
+
+    .hero::before {
+        display: none;
+    }
+
+
+    .hero-text::before {
+        margin-bottom: 20px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hero-text h1 {
+        font-size:
+            clamp(45px, 14vw, 64px);
+
+        line-height: 0.96;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .hero-text p {
+        margin-top: 23px;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    .hero-text button {
+        width: 100%;
+
+        margin-top: 30px;
+    }
+
+
+    .hero-card {
+        min-height: 270px;
+
+        padding: 30px;
+
+        border-radius: 14px;
+    }
+
+
+    .card-icon {
+        top: 28px;
+
+        left: 30px;
+    }
+
+
+    .hero-card h2 {
+        font-size: 25px;
+    }
+
+
+    .hero-card p {
+        font-size: 13px;
+    }
+}

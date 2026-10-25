@@ -1,0 +1,466 @@
+
+/* =========================================================
+   GYMGUARD — EXERCISES PAGE
+   Reference-inspired UI | Functionality unchanged
+   ========================================================= */
+
+:root {
+    --bg: #0c110d;
+    --surface: #19201a;
+    --surface-hover: #20291f;
+    --text: #f1f2ed;
+    --muted: #b0b8af;
+    --accent: #c4df8b;
+    --accent-soft: rgba(196, 223, 139, 0.10);
+    --border: rgba(196, 223, 139, 0.32);
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* RESET */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(93, 119, 72, 0.15),
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 95% 55%,
+            rgba(168, 189, 126, 0.035),
+            transparent 30%
+        ),
+        #0c110d;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(241, 242, 237, 0.09);
+    background: rgba(12, 17, 13, 0.96);
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 850;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav a {
+    position: relative;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--text);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* MAIN PAGE */
+
+.exercises-page {
+    width: min(1320px, 91%);
+    margin: 0 auto;
+    padding: 48px 0 75px;
+}
+
+/* HEADING */
+
+.page-heading {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    text-align: center;
+    animation: headingIn 0.6s ease both;
+}
+
+.small-heading {
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 2.6px;
+}
+
+.page-heading h1 {
+    color: var(--text);
+    font-size: clamp(36px, 4.1vw, 51px);
+    line-height: 1.08;
+    font-weight: 850;
+    letter-spacing: -1.7px;
+}
+
+.page-heading > p:last-child {
+    max-width: 630px;
+    margin: 13px auto 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* GRID */
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 25px;
+}
+
+/* CARDS */
+
+.exercise-card {
+    position: relative;
+    min-width: 0;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background: linear-gradient(
+        145deg,
+        rgba(27, 35, 28, 0.98),
+        rgba(21, 28, 22, 0.98)
+    );
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: cardIn 0.55s ease both;
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    background: var(--surface-hover);
+    border-color: rgba(196, 223, 139, 0.65);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* EXERCISE IMAGE
+   HTML should contain an <img> inside .exercise-image.
+*/
+
+.exercise-image {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: #121a13;
+    border-bottom: 1px solid rgba(196, 223, 139, 0.24);
+
+    background-image:
+        radial-gradient(
+            circle at center,
+            transparent 0 22%,
+            rgba(196, 223, 139, 0.08) 22.2% 22.5%,
+            transparent 22.7% 37%,
+            rgba(196, 223, 139, 0.065) 37.2% 37.5%,
+            transparent 37.7% 52%,
+            rgba(196, 223, 139, 0.045) 52.2% 52.5%,
+            transparent 52.7%
+        ),
+        linear-gradient(135deg, #1c291d, #101610);
+}
+
+.exercise-image img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.exercise-card:hover .exercise-image img {
+    transform: scale(1.045);
+    filter: brightness(1.06);
+}
+
+/* CARD CONTENT */
+
+.exercise-content {
+    flex: 1;
+    padding: 17px 23px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* DIFFICULTY LABEL */
+
+.difficulty {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid rgba(196, 223, 139, 0.28);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* TITLE */
+
+.exercise-content h2 {
+    margin-top: 13px;
+    color: var(--text);
+    font-size: clamp(21px, 2vw, 26px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+/* DESCRIPTION */
+
+.exercise-content p {
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* BUTTON */
+
+.exercise-content button {
+    width: 100%;
+    min-height: 43px;
+    margin-top: auto;
+    padding: 11px 15px;
+
+    border: 1px solid rgba(196, 223, 139, 0.38);
+    border-radius: 8px;
+    background: rgba(12, 17, 13, 0.25);
+    color: var(--text);
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 750;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.exercise-content button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #151a12;
+    transform: translateY(-1px);
+}
+
+.exercise-content button:active {
+    transform: translateY(0);
+}
+
+.exercise-content button:focus-visible,
+nav a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* ENTRANCE ANIMATIONS */
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headingIn {
+    from {
+        opacity: 0;
+        transform: translateY(9px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.exercise-card:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+.exercise-card:nth-child(3) {
+    animation-delay: 0.08s;
+}
+
+.exercise-card:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.exercise-card:nth-child(5) {
+    animation-delay: 0.16s;
+}
+
+.exercise-card:nth-child(6) {
+    animation-delay: 0.20s;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .exercises-page {
+        width: 92%;
+    }
+
+    .exercise-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .exercise-image {
+        height: 205px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    header {
+        min-height: 72px;
+        padding: 17px 5%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .exercises-page {
+        width: 91%;
+        padding: 34px 0 55px;
+    }
+
+    .page-heading {
+        text-align: left;
+        margin-bottom: 27px;
+    }
+
+    .page-heading h1 {
+        font-size: clamp(34px, 9vw, 46px);
+        letter-spacing: -1.4px;
+    }
+
+    .page-heading > p:last-child {
+        margin-left: 0;
+        font-size: 13px;
+    }
+
+    .exercise-grid {
+        grid-template-columns: 1fr;
+        gap: 19px;
+    }
+
+    .exercise-card {
+        min-height: 0;
+    }
+
+    .exercise-image {
+        height: 225px;
+    }
+
+    .exercise-content {
+        min-height: 215px;
+        padding: 19px 21px 21px;
+    }
+
+    .exercise-content h2 {
+        font-size: 24px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

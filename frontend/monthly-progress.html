@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Monthly Progress</title>
+
+    <link
+        rel="stylesheet"
+        href="css/monthly-progress.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="css/progress-chart.css">
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        GYMGUARD
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="exercises.html">
+            Exercises
+        </a>
+
+        <a href="result.html">
+            Result
+        </a>
+
+        <a href="#">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="progress-page">
+
+
+    <section class="progress-heading-row">
+
+        <div>
+
+            <p class="small-heading">
+                MONTHLY PROGRESS
+            </p>
+
+            <h1>
+                Monthly Progress
+            </h1>
+
+            <p id="monthlyTitle">
+                This Month
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-progress-btn"
+            onclick="goToDaily()">
+
+            ← Daily Progress
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MONTHLY STATS
+         ===================================================== -->
+
+    <div class="progress-cards">
+
+
+        <div class="progress-card">
+
+            <span>
+                WORKOUT DAYS
+            </span>
+
+            <strong id="monthlyDays">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                WORKOUTS
+            </span>
+
+            <strong id="monthlyWorkouts">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                TOTAL REPS
+            </span>
+
+            <strong id="monthlyReps">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                DURATION
+            </span>
+
+            <strong id="monthlyDuration">
+                00:00
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MONTHLY ACTIVITY
+         ===================================================== -->
+
+    <section class="progress-section-card">
+
+        <p class="small-heading">
+            MONTHLY ACTIVITY
+        </p>
+
+        <h2>
+            Workout Activity
+        </h2>
+
+
+        <div
+            id="monthlyChart"
+            class="activity-chart">
+
+        </div>
+
+    </section>
+
+
+</main>
+
+<script src="js/auth.js"></script>
+
+<script>
+    requireLogin();
+</script>
+
+<script src="js/monthly-progress.js"></script>
+
+
+</body>
+
+</html>

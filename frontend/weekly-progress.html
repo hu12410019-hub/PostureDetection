@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>GymGuard - Weekly Progress</title>
+
+    <link
+        rel="stylesheet"
+        href="css/weekly-progress.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="css/progress-chart.css">
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        GYMGUARD
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="exercises.html">
+            Exercises
+        </a>
+
+        <a href="result.html">
+            Result
+        </a>
+
+        <a href="#">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="progress-page">
+
+
+    <section class="progress-heading-row">
+
+        <div>
+
+            <p class="small-heading">
+                WEEKLY PROGRESS
+            </p>
+
+            <h1>
+                Weekly Progress
+            </h1>
+
+            <p id="weeklyRange">
+                This Week
+            </p>
+
+        </div>
+
+
+        <button
+            class="back-progress-btn"
+            onclick="goToDaily()">
+
+            ← Daily Progress
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         WEEKLY STATS
+         ===================================================== -->
+
+    <div class="progress-cards">
+
+
+        <div class="progress-card">
+
+            <span>
+                WORKOUTS
+            </span>
+
+            <strong id="weeklyWorkouts">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                TOTAL REPS
+            </span>
+
+            <strong id="weeklyReps">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                DURATION
+            </span>
+
+            <strong id="weeklyDuration">
+                00:00
+            </strong>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <span>
+                CALORIES
+            </span>
+
+            <strong id="weeklyCalories">
+                0
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WEEKLY ACTIVITY
+         ===================================================== -->
+
+    <section class="progress-section-card">
+
+        <p class="small-heading">
+            WEEKLY ACTIVITY
+        </p>
+
+        <h2>
+            Workout Activity
+        </h2>
+
+
+        <div
+            id="weeklyChart"
+            class="activity-chart">
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="js/auth.js"></script>
+
+<script>
+    requireLogin();
+</script>
+<script src="js/weekly-progress.js"></script>
+
+
+</body>
+
+</html>
